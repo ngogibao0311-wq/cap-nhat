@@ -1,0 +1,26 @@
+{
+  "version": "4.4.4",
+  "build": "20261108.plan5.1",
+  "channel": "preview",
+  "releasedAt": "2026-11-08T00:00:00+07:00",
+  "title": "Phiên bản 4.4.4 · Xưởng Quà Noel (chuẩn bị)",
+  "summary": "Thêm trò chơi ghép 3 và tiến độ sự kiện; lịch và phần thưởng chờ công bố.",
+  "mandatory": false,
+  "minSupportedVersion": "3.0.0",
+  "changes": [
+    "Thêm Xưởng Quà Noel ở mục Trò chơi: 12 màn ghép 3, băng và biểu tượng đặc biệt.",
+    "Máy chủ xác nhận từng nước đi, lưu tiến độ theo tài khoản và chống nhận thưởng trùng.",
+    "Giáo viên xem và sửa hạn học sinh đã gia hạn; sửa hạn không hoàn Coin."
+  ],
+  "resolvedIssues": [
+    "Giữ cùng yêu cầu khi mất kết nối để không trừ coin hoặc hoàn coin trùng.",
+    "Sửa hạn không hoàn Coin: bài riêng theo giáo viên; bài chung lấy hạn muộn hơn.",
+    "Giữ nội dung và tệp đang chọn khi hạn nộp thay đổi.",
+    "Gia hạn không tăng đồng hồ làm bài, không mở bài đã nộp và không xóa lỗi quá hạn đã có."
+  ],
+  "knownIssues": [
+    "Bản trên máy: chưa phát hành hay xác minh online.",
+    "Sự kiện chỉ mở khi lịch, mức thưởng, danh sách quà và luật đã được chốt phía máy chủ."
+  ],
+  "plannedImprovements": []
+}

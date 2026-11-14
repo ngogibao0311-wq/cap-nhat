@@ -1,0 +1,3416 @@
+/* Style khu vực chấm điểm */
+.grading-box {
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.grading-box input {
+    width: 120px;
+    margin-right: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.grading-box button {
+    width: auto;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    color: #1e3c72;
+    box-shadow: 0 4px 15px rgba(161, 196, 253, 0.4);
+    border-radius: 12px;
+}
+
+.grading-box button:hover {
+    background: linear-gradient(135deg, #8fd3f4 0%, #84fab0 100%);
+    color: #1e3c72;
+}
+
+/* Style Bảng quản lý học sinh */
+table th {
+    color: #2c3e50;
+    background: rgba(255, 255, 255, 0.6) !important;
+    border-radius: 8px 8px 0 0;
+}
+
+table td {
+    color: #444;
+}
+
+/* Nút lọc học sinh */
+.btn-student-filter {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #667eea;
+    background: transparent;
+    color: #667eea;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.btn-student-filter.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.btn-student-filter:hover:not(.active) {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Ẩn thanh cuộn cho đẹp (tuỳ chọn) */
+#assignedStudentFilterContainer::-webkit-scrollbar,
+#submittedStudentFilterContainer::-webkit-scrollbar {
+    height: 6px;
+}
+
+#assignedStudentFilterContainer::-webkit-scrollbar-thumb,
+#submittedStudentFilterContainer::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Giao diện nút chọn (như ô input) */
+.custom-student-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.css-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    color: #374151;
+}
+
+.css-select-trigger:hover {
+    border-color: #3b82f6;
+}
+
+/* Popup/Modal - Cập nhật giống hệt ảnh image_8d26fa.jpg */
+.student-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9990;
+}
+
+.student-modal-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 16px;
+    /* Bo góc to và mềm mại */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    /* Bóng đổ 3D nhẹ */
+    overflow: hidden;
+    font-family: inherit;
+}
+
+/* Phần ô tìm kiếm */
+.student-modal-header {
+    padding: 24px 24px 16px 24px;
+}
+
+.student-search-box {
+    display: flex;
+    align-items: center;
+    background: #f4f5f7;
+    /* Nền xám nhạt */
+    border-radius: 12px;
+    /* Bo góc ô tìm kiếm */
+    padding: 12px 16px;
+}
+
+.student-search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #333;
+}
+
+.student-search-box input::placeholder {
+    color: #9ca3af;
+}
+
+/* Danh sách học sinh */
+.student-modal-list {
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 0 24px;
+}
+
+.student-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+    margin: 0;
+    transition: background 0.2s;
+    border-radius: 8px;
+}
+
+.student-item:hover {
+    background: #f9fafb;
+}
+
+/* Hiệu ứng hover nhẹ */
+
+/* Checkbox màu xanh hiện đại */
+.student-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 16px;
+    cursor: pointer;
+    accent-color: #3b82f6;
+    /* Đổi màu checkbox khi tick thành xanh lam */
+}
+
+/* Avatar tròn */
+.student-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Hai nút Đóng / Xác nhận */
+.student-modal-footer {
+    padding: 20px 24px 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.btn-cancel,
+.btn-confirm {
+    flex: 1;
+    /* Chia đều độ rộng 2 nút */
+    padding: 12px 0;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.btn-cancel {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-cancel:hover {
+    background: #f9fafb;
+}
+
+.btn-confirm {
+    background: #3b82f6;
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.btn-confirm:hover {
+    background: #2563eb;
+}
+
+/* Tùy chỉnh thanh cuộn (Scrollbar) cho đẹp */
+.student-modal-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.student-modal-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.student-modal-list::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+}
+
+.student-modal-list::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+/* ==================================================
+       FIX NÚT CHỌN MÀU QUILL BỊ TRẮNG / CHÌM VÀO NỀN
+       ================================================== */
+
+.ql-toolbar .ql-color-picker {
+    width: 30px !important;
+    height: 30px !important;
+    vertical-align: middle !important;
+}
+
+.ql-toolbar .ql-color-picker .ql-picker-label {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 28px !important;
+    height: 28px !important;
+    padding: 3px !important;
+
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+}
+
+/* Buộc biểu tượng SVG hiện rõ */
+.ql-toolbar .ql-color-picker .ql-picker-label svg {
+    display: block !important;
+    width: 18px !important;
+    height: 18px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Nét của biểu tượng */
+.ql-toolbar .ql-color-picker .ql-stroke {
+    stroke: #1f2937 !important;
+    opacity: 1 !important;
+}
+
+/* Phần tô của biểu tượng */
+.ql-toolbar .ql-color-picker .ql-fill {
+    fill: #1f2937 !important;
+    opacity: 1 !important;
+}
+
+/* Vạch thể hiện màu chữ đang chọn */
+.ql-toolbar .ql-color-picker.ql-color .ql-color-label {
+    stroke: #e11d48 !important;
+    stroke-width: 3px !important;
+}
+
+/* Biểu tượng màu nền */
+.ql-toolbar .ql-color-picker.ql-background .ql-color-label {
+    fill: #f59e0b !important;
+    stroke: #1f2937 !important;
+}
+
+/* Khi rê chuột */
+.ql-toolbar .ql-color-picker .ql-picker-label:hover {
+    background: #eef2ff !important;
+    border-color: #667eea !important;
+}
+
+/* Bảng màu luôn nằm trên khung nhập */
+.ql-toolbar .ql-color-picker .ql-picker-options {
+    z-index: 99999 !important;
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18) !important;
+}
+/* =========================================================
+   TÓM TẮT VIDEO TRONG BÀI TẬP
+   ========================================================= */
+
+.assignment-option-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.assignment-option-item,
+.video-summary-toggle-row {
+    min-height: 54px;
+    box-sizing: border-box;
+}
+
+.assignment-option-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    padding: 11px 12px;
+    cursor: pointer;
+    border: 1px solid rgba(118, 75, 162, 0.24);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.assignment-option-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #764ba2;
+}
+
+.assignment-option-item strong {
+    color: #764ba2;
+}
+
+.video-summary-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 15px 0 0;
+    padding: 11px 12px;
+    cursor: pointer;
+    border: 1px solid rgba(102, 126, 234, 0.24);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.assignment-option-row .video-summary-toggle-row {
+    margin-top: 0;
+}
+
+.video-summary-toggle-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.video-summary-toggle-row input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.video-summary-toggle-row strong {
+    color: #4f46e5;
+    white-space: nowrap;
+}
+
+.video-summary-status {
+    margin-left: auto;
+    color: #64748b;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: right;
+}
+
+.video-summary-status.is-saved {
+    color: #059669;
+}
+
+.video-summary-editor-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(15, 23, 42, 0.72);
+}
+
+.video-summary-editor-overlay.active {
+    display: flex;
+}
+
+.video-summary-editor-box {
+    position: relative;
+    width: min(680px, calc(100vw - 32px));
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 24px;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+}
+
+.video-summary-editor-box h3 {
+    margin: 0 42px 8px 0;
+    color: #4338ca;
+}
+
+.video-summary-editor-box textarea {
+    width: 100%;
+    min-height: 260px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin: 15px 0 8px;
+    padding: 14px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    outline: none;
+    color: #172033;
+    background: #f8fafc;
+    font: 500 15px/1.65 "Segoe UI", Arial, sans-serif;
+}
+
+.video-summary-editor-box textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.14);
+}
+
+.video-summary-editor-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.video-summary-editor-actions button {
+    flex: 1;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .assignment-option-row {
+        grid-template-columns: 1fr;
+    }
+
+    .video-summary-toggle-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .video-summary-status {
+        width: 100%;
+        margin-left: 29px;
+        text-align: left;
+    }
+
+    .video-summary-editor-actions {
+        flex-direction: column;
+    }
+}
+/* FIX SIDEBAR GIÁO VIÊN */
+@media (min-width: 769px) {
+    .sidebar {
+        position: sticky !important;
+        top: 0 !important;
+
+        height: 100vh !important;
+        height: 100dvh !important;
+
+        align-self: flex-start !important;
+
+        overflow-x: visible !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* 2. Định vị nút toggle bất kể thẻ cha ngoài cùng là gì */
+@media (min-width: 769px) {
+    .sidebar .sidebar-toggle {
+        position: absolute !important;
+        top: 32px !important;
+        right: -17px !important; /* Đẩy ra mép phải */
+        left: auto !important;
+        bottom: auto !important;
+        margin: 0 !important;
+        
+        z-index: 99999 !important; 
+        
+        width: 34px !important;
+        height: 34px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+/* =========================================================
+   CHỌN PHẠM VI LÀM LẠI BÀI
+   ========================================================= */
+.teacher-redo-scope-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    box-sizing: border-box;
+    background: rgba(15, 23, 42, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity .18s ease;
+}
+
+.teacher-redo-scope-overlay.is-open {
+    opacity: 1;
+}
+
+.teacher-redo-scope-modal {
+    width: min(680px, 96vw);
+    max-height: min(820px, 92vh);
+    overflow: auto;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, .85);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 28px 90px rgba(15, 23, 42, .34);
+    color: #172033;
+    transform: translateY(8px) scale(.985);
+    transition: transform .18s ease;
+}
+
+.teacher-redo-scope-overlay.is-open .teacher-redo-scope-modal {
+    transform: translateY(0) scale(1);
+}
+
+.teacher-redo-scope-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 16px;
+}
+
+.teacher-redo-scope-head h3 {
+    margin: 6px 0 4px;
+    font-size: 1.35rem;
+    color: #172554;
+}
+
+.teacher-redo-scope-head p {
+    margin: 0;
+    color: #64748b;
+    font-size: .92rem;
+    line-height: 1.5;
+}
+
+.teacher-redo-scope-kicker {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, .12);
+    color: #4f46e5;
+    font-size: .78rem;
+    font-weight: 900;
+    letter-spacing: .04em;
+}
+
+.teacher-redo-scope-close {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    padding: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    color: #475569;
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.teacher-redo-scope-warning {
+    margin: 0 0 16px;
+    padding: 13px 15px;
+    border: 1px solid #fde68a;
+    border-left: 4px solid #f59e0b;
+    border-radius: 13px;
+    background: #fffbeb;
+    color: #92400e;
+    font-size: .9rem;
+    line-height: 1.55;
+}
+
+.teacher-redo-scope-options {
+    display: grid;
+    gap: 11px;
+}
+
+.teacher-redo-scope-option {
+    position: relative;
+    display: grid;
+    grid-template-columns: 22px 46px 1fr;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 15px;
+    border: 1px solid #dbe3f0;
+    border-radius: 16px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.teacher-redo-scope-option:hover {
+    transform: translateY(-1px);
+    border-color: #a5b4fc;
+    box-shadow: 0 8px 22px rgba(79, 70, 229, .10);
+}
+
+.teacher-redo-scope-option:has(input:checked) {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, .12);
+    background: #f7f7ff;
+}
+
+.teacher-redo-scope-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #4f46e5;
+}
+
+.teacher-redo-scope-option-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: rgba(99, 102, 241, .10);
+    font-size: 1.2rem;
+}
+
+.teacher-redo-scope-option-copy {
+    min-width: 0;
+}
+
+.teacher-redo-scope-option-copy strong,
+.teacher-redo-scope-option-copy small {
+    display: block;
+}
+
+.teacher-redo-scope-option-copy strong {
+    margin-bottom: 4px;
+    color: #1e293b;
+    font-size: .98rem;
+}
+
+.teacher-redo-scope-option-copy small {
+    color: #64748b;
+    font-size: .86rem;
+    line-height: 1.45;
+}
+
+.teacher-redo-scope-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.teacher-redo-scope-actions button {
+    width: auto;
+    min-width: 150px;
+    margin: 0;
+    padding: 11px 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.teacher-redo-scope-cancel {
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #475569;
+}
+
+.teacher-redo-scope-confirm {
+    border: 0;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(79, 70, 229, .22);
+}
+
+@media (max-width: 640px) {
+    .teacher-redo-scope-overlay {
+        padding: 12px;
+    }
+
+    .teacher-redo-scope-modal {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .teacher-redo-scope-option {
+        grid-template-columns: 20px 38px 1fr;
+        padding: 12px;
+    }
+
+    .teacher-redo-scope-option-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .teacher-redo-scope-actions {
+        flex-direction: column-reverse;
+    }
+
+    .teacher-redo-scope-actions button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   VÒNG QUAY · QUẢN LÝ GIỜ VÀNG V3
+   FIX: input time bị tràn/chồng lên nhau trên desktop.
+   ========================================================= */
+
+#teacherGoldenHourManageCard.teacher-golden-hour-card {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 20px;
+    padding: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(217, 119, 6, .28);
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 247, 214, .92),
+            rgba(255, 237, 188, .76)
+        );
+    box-shadow: 0 8px 24px rgba(180, 83, 9, .08);
+}
+
+.teacher-golden-hour-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    min-width: 0;
+}
+
+.teacher-golden-hour-heading {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.teacher-golden-hour-heading h4 {
+    margin: 0 0 6px;
+    color: #b45309;
+    font-size: 1.04rem;
+}
+
+.teacher-golden-hour-heading p {
+    margin: 0;
+    color: #6b7280;
+    font-size: .88rem;
+    line-height: 1.5;
+}
+
+.teacher-golden-hour-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 7px 10px;
+    border-radius: 10px;
+    color: #92400e;
+    background: rgba(255, 255, 255, .52);
+    font-weight: 900;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.teacher-golden-hour-toggle input[type="checkbox"] {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 0 0 20px;
+    accent-color: #f59e0b;
+}
+
+.teacher-golden-hour-config {
+    display: grid;
+    grid-template-columns: minmax(190px, 220px) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    min-width: 0;
+    margin-top: 16px;
+}
+
+.teacher-golden-bonus-box,
+.teacher-golden-window-section {
+    min-width: 0;
+}
+
+.teacher-golden-bonus-box > label,
+.teacher-golden-window-title strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #92400e;
+    font-size: .82rem;
+    font-weight: 900;
+}
+
+.teacher-golden-bonus-input-wrap {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    min-height: 52px;
+    padding: 0 12px;
+    border: 1px solid rgba(217, 119, 6, .20);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 3px 12px rgba(180, 83, 9, .06);
+}
+
+.teacher-golden-bonus-input-wrap input[type="number"] {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 44px !important;
+    margin: 0 !important;
+    padding: 6px 4px !important;
+    border: 0 !important;
+    outline: 0 !important;
+    color: #b45309 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-align: center !important;
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.teacher-golden-bonus-input-wrap small {
+    color: #92400e;
+    font-size: .76rem;
+    font-weight: 800;
+}
+
+.teacher-golden-window-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
+.teacher-golden-window-title strong {
+    margin-bottom: 0;
+}
+
+.teacher-golden-window-title small {
+    color: #9a6b3d;
+    font-size: .73rem;
+    font-weight: 700;
+}
+
+.teacher-golden-window-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    min-width: 0;
+}
+
+.teacher-golden-window-card {
+    min-width: 0;
+    padding: 9px 10px 10px;
+    border: 1px solid rgba(217, 119, 6, .16);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .67);
+    box-shadow: 0 3px 10px rgba(180, 83, 9, .045);
+}
+
+.teacher-golden-window-index {
+    display: block;
+    margin-bottom: 6px;
+    color: #9a5c1f;
+    font-size: .70rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.teacher-golden-window-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr);
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+}
+
+.teacher-golden-window-row input[type="time"] {
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 42px !important;
+    margin: 0 !important;
+    padding: 7px 8px !important;
+    overflow: hidden !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 9px !important;
+    outline: 0 !important;
+    color: #27314d !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    font-size: .82rem !important;
+    font-weight: 800 !important;
+}
+
+.teacher-golden-window-row input[type="time"]:focus {
+    border-color: #f59e0b !important;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, .14) !important;
+}
+
+.teacher-golden-window-arrow {
+    width: 18px;
+    min-width: 18px;
+    color: #9a6b3d;
+    font-size: .9rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.teacher-golden-hour-preview {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 13px;
+    padding: 10px 12px;
+    overflow-wrap: anywhere;
+    border: 1px solid rgba(217, 119, 6, .10);
+    border-radius: 11px;
+    color: #78350f;
+    background: rgba(255, 255, 255, .68);
+    font-size: .88rem;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.teacher-golden-hour-status {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 8px;
+    padding: 3px 8px;
+    overflow-wrap: anywhere;
+    color: #475569;
+    font-size: .84rem;
+    font-weight: 900;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.teacher-golden-hour-save {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 48px;
+    margin: 12px 0 0 !important;
+    padding: 11px 14px !important;
+    border: 0 !important;
+    border-radius: 11px !important;
+    color: #fff !important;
+    background:
+        linear-gradient(
+            135deg,
+            #f59e0b,
+            #ea580c
+        ) !important;
+    box-shadow: 0 7px 18px rgba(234, 88, 12, .18) !important;
+    font-weight: 900 !important;
+    cursor: pointer;
+}
+
+.teacher-golden-hour-save:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 1180px) {
+    .teacher-golden-hour-config {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-golden-window-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    #teacherGoldenHourManageCard.teacher-golden-hour-card {
+        padding: 14px;
+    }
+
+    .teacher-golden-hour-head {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .teacher-golden-hour-toggle {
+        align-self: flex-start;
+    }
+
+    .teacher-golden-window-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .teacher-golden-window-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-golden-window-row input[type="time"] {
+        font-size: .9rem !important;
+    }
+}
+
+
+
+/* =========================================================
+   LAYOUT REFRESH v4.0.3 · TEACHER
+   Chỉ thay đổi bố cục/giao diện. Không thay đổi logic, ID, event.
+   ========================================================= */
+@media (min-width: 769px) {
+    html[data-app-role="teacher"] body .dashboard {
+        display: grid !important;
+        grid-template-columns: 282px minmax(0, 1fr);
+        gap: 18px;
+        align-items: start !important;
+        padding: 16px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        transition: grid-template-columns .34s cubic-bezier(.2,.8,.2,1);
+    }
+
+    html[data-app-role="teacher"] body .dashboard.collapsed {
+        grid-template-columns: 90px minmax(0, 1fr);
+    }
+
+    html[data-app-role="teacher"] body .dashboard > .sidebar {
+        position: sticky !important;
+        top: 16px !important;
+        width: 100% !important;
+        height: calc(100vh - 32px) !important;
+        height: calc(100dvh - 32px) !important;
+        flex: none !important;
+        align-self: start !important;
+        border: 1px solid rgba(255,255,255,.22) !important;
+        border-radius: 28px !important;
+        box-shadow: 0 22px 55px rgba(15,23,42,.20) !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard > .sidebar > .sidebar-toggle,
+    html[data-app-role="teacher"] body .dashboard:not(.collapsed) > .sidebar > .sidebar-toggle,
+    html[data-app-role="teacher"] body .dashboard.collapsed > .sidebar > .sidebar-toggle {
+        position: sticky !important;
+        top: 18px !important;
+        left: auto !important;
+        right: auto !important;
+        float: right;
+        margin: 0 14px -34px 0 !important;
+        width: 34px !important;
+        height: 34px !important;
+        z-index: 8 !important;
+        border-color: rgba(255,255,255,.62) !important;
+        box-shadow: 0 8px 18px rgba(15,23,42,.26) !important;
+    }
+
+    html[data-app-role="teacher"] body .sidebar-top {
+        padding: 24px 16px 18px !important;
+    }
+
+    html[data-app-role="teacher"] body .sidebar-bottom {
+        padding: 14px 16px 18px !important;
+    }
+
+    html[data-app-role="teacher"] body .sidebar-top h3 {
+        margin: 0 42px 20px 2px !important;
+        padding-bottom: 16px !important;
+        font-size: 1.18rem !important;
+    }
+
+    html[data-app-role="teacher"] body .nav-item {
+        min-height: 48px !important;
+        margin-bottom: 7px !important;
+        padding: 11px 13px !important;
+        border-radius: 14px !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard.collapsed .sidebar-top,
+    html[data-app-role="teacher"] body .dashboard.collapsed .sidebar-bottom {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard.collapsed .sidebar-top h3 {
+        margin-right: 0 !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard > .content {
+        position: relative !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: calc(100vh - 32px);
+        min-height: calc(100dvh - 32px);
+        padding: clamp(28px, 3vw, 46px) !important;
+        border: 1px solid rgba(255,255,255,.54);
+        border-radius: 30px;
+        background: rgba(248,250,252,.34);
+        box-shadow: 0 22px 55px rgba(15,23,42,.10), inset 0 1px 0 rgba(255,255,255,.72);
+        backdrop-filter: blur(12px) saturate(1.05);
+        -webkit-backdrop-filter: blur(12px) saturate(1.05);
+        overflow-x: clip;
+    }
+
+    html[data-app-role="teacher"] body .dashboard > .content::before {
+        height: 220px !important;
+        border-radius: 30px 30px 0 0;
+        background: linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,0)) !important;
+    }
+
+    html[data-app-role="teacher"] body .tab-content {
+        max-width: 1540px;
+        margin: 0 auto;
+    }
+
+    html[data-app-role="teacher"] body .teacher-assignment-heading-row {
+        margin-bottom: 20px !important;
+        padding: 4px 0;
+    }
+
+    html[data-app-role="teacher"] body .teacher-question-bank-entry {
+        max-width: none !important;
+        border-radius: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    html[data-app-role="teacher"] body .card {
+        border-radius: 22px !important;
+        box-shadow: 0 14px 36px rgba(15,23,42,.09), inset 0 1px 0 rgba(255,255,255,.84) !important;
+    }
+
+    html[data-app-role="teacher"] body .form-row {
+        gap: 18px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    html[data-app-role="teacher"] body .dashboard {
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 22px;
+        padding: 18px;
+    }
+    html[data-app-role="teacher"] body .dashboard.collapsed {
+        grid-template-columns: 94px minmax(0, 1fr);
+    }
+}
+
+
+/* =========================================================
+   CÀI ĐẶT GIÁO VIÊN · BỐ CỤC TRUNG TÂM CÀI ĐẶT
+   Chỉ sắp xếp lại giao diện; giữ nguyên ID và logic JS hiện có.
+   ========================================================= */
+#tab-settings {
+    --teacher-settings-border: rgba(100, 116, 139, .16);
+    --teacher-settings-shadow: 0 12px 34px rgba(15, 23, 42, .07);
+    --teacher-settings-text: #1e293b;
+    --teacher-settings-muted: #64748b;
+}
+
+#tab-settings .teacher-settings-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 20px;
+    padding: 22px 24px;
+    border: 1px solid rgba(99, 102, 241, .16);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 92% 16%, rgba(129, 140, 248, .20), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(238, 242, 255, .78));
+    box-shadow: 0 14px 38px rgba(79, 70, 229, .08);
+}
+
+#tab-settings .teacher-settings-hero-copy {
+    min-width: 0;
+}
+
+#tab-settings .teacher-settings-kicker {
+    display: inline-block;
+    margin-bottom: 7px;
+    color: #6366f1;
+    font-size: .74rem;
+    font-weight: 900;
+    letter-spacing: .10em;
+}
+
+#tab-settings .teacher-settings-hero h2 {
+    margin: 0 0 7px;
+    color: #1e293b;
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+}
+
+#tab-settings .teacher-settings-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--teacher-settings-muted);
+    font-size: .93rem;
+    line-height: 1.6;
+}
+
+#tab-settings .teacher-settings-hero-badge {
+    width: 66px;
+    height: 66px;
+    flex: 0 0 66px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(99, 102, 241, .15);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .72);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .45);
+    font-size: 1.9rem;
+}
+
+#tab-settings > .update-banner {
+    margin-bottom: 20px;
+}
+
+#tab-settings .teacher-settings-section {
+    margin-top: 24px;
+}
+
+#tab-settings .teacher-settings-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+#tab-settings .teacher-settings-section-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: rgba(99, 102, 241, .10);
+    font-size: 1.22rem;
+}
+
+#tab-settings .teacher-settings-section-copy h3 {
+    margin: 0 0 3px;
+    color: var(--teacher-settings-text);
+    font-size: 1.08rem;
+}
+
+#tab-settings .teacher-settings-section-copy p {
+    margin: 0;
+    color: var(--teacher-settings-muted);
+    font-size: .84rem;
+    line-height: 1.45;
+}
+
+#tab-settings .teacher-settings-grid {
+    display: grid;
+    gap: 16px;
+    align-items: start;
+}
+
+#tab-settings .teacher-settings-grid-account {
+    grid-template-columns: minmax(300px, .85fr) minmax(420px, 1.15fr);
+}
+
+#tab-settings .teacher-settings-grid-tools,
+#tab-settings .teacher-settings-grid-engagement {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#tab-settings .teacher-settings-card {
+    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 0;
+    max-width: none !important;
+    margin: 0 !important;
+    border: 1px solid var(--teacher-settings-border) !important;
+    border-radius: 18px !important;
+    box-shadow: var(--teacher-settings-shadow) !important;
+}
+
+#tab-settings .teacher-settings-account-card,
+#tab-settings .teacher-settings-login-card,
+#tab-settings .teacher-settings-health-card,
+#tab-settings .teacher-settings-cash-card,
+#tab-settings .teacher-settings-communication-card,
+#tab-settings .teacher-settings-gift-card {
+    padding: 20px !important;
+    background: rgba(255, 255, 255, .84) !important;
+}
+
+#tab-settings .teacher-settings-card-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 18px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(100, 116, 139, .12);
+}
+
+#tab-settings .teacher-settings-card-heading-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(99, 102, 241, .10);
+}
+
+#tab-settings .teacher-settings-card-heading h4 {
+    margin: 0 0 4px;
+    color: #334155;
+    font-size: 1rem;
+}
+
+#tab-settings .teacher-settings-card-heading p {
+    margin: 0;
+    color: var(--teacher-settings-muted);
+    font-size: .81rem;
+    line-height: 1.45;
+}
+
+#tab-settings .teacher-settings-account-card > label {
+    display: block;
+    margin-top: 12px;
+}
+
+#tab-settings .teacher-settings-account-card > label:first-of-type {
+    margin-top: 0;
+}
+
+#tab-settings .teacher-settings-account-card > input:not([type="checkbox"]):not([type="radio"]),
+#tab-settings .teacher-settings-account-card > select {
+    box-sizing: border-box;
+    width: 100% !important;
+}
+
+#tab-settings .teacher-settings-login-card {
+    height: 100%;
+}
+
+#tab-settings .teacher-settings-toggle-card {
+    min-height: 88px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    margin: 0 !important;
+    padding: 18px 20px !important;
+    background: rgba(255, 255, 255, .84) !important;
+}
+
+#tab-settings .teacher-settings-health-card {
+    min-height: 88px;
+}
+
+#tab-settings .teacher-settings-health-card h3 {
+    margin-top: 0 !important;
+}
+
+#tab-settings .teacher-settings-cash-card {
+    margin-top: 16px !important;
+}
+
+#tab-settings .teacher-settings-grid-engagement > .teacher-settings-gift-card {
+    grid-column: 1 / -1;
+}
+
+#tab-settings .teacher-settings-communication-card,
+#tab-settings .teacher-settings-gift-card {
+    position: relative;
+    height: 100%;
+}
+
+#tab-settings .teacher-settings-communication-card > h3,
+#tab-settings .teacher-settings-gift-card > h3 {
+    padding-right: 48px;
+}
+
+#tab-settings .teacher-settings-gift-card > h3 {
+    padding-right: 0;
+}
+
+#tab-settings #diagnosticResults,
+#tab-settings #teacherCashRequestsListContainer,
+#tab-settings #notificationInputArea,
+#tab-settings #surveyInputArea,
+#tab-settings #giftInputArea {
+    min-width: 0;
+}
+
+@media (max-width: 1120px) {
+    #tab-settings .teacher-settings-grid-account,
+    #tab-settings .teacher-settings-grid-tools,
+    #tab-settings .teacher-settings-grid-engagement {
+        grid-template-columns: 1fr;
+    }
+
+    #tab-settings .teacher-settings-grid-engagement > .teacher-settings-gift-card {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    #tab-settings .teacher-settings-hero {
+        align-items: flex-start;
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    #tab-settings .teacher-settings-hero-badge {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        border-radius: 14px;
+        font-size: 1.4rem;
+    }
+
+    #tab-settings .teacher-settings-section-heading {
+        align-items: flex-start;
+    }
+
+    #tab-settings .teacher-settings-account-card,
+    #tab-settings .teacher-settings-login-card,
+    #tab-settings .teacher-settings-health-card,
+    #tab-settings .teacher-settings-cash-card,
+    #tab-settings .teacher-settings-communication-card,
+    #tab-settings .teacher-settings-gift-card {
+        padding: 15px !important;
+        border-radius: 15px !important;
+    }
+
+    #tab-settings .teacher-settings-toggle-card {
+        min-height: 76px;
+        padding: 14px 15px !important;
+    }
+
+    #tab-settings .teacher-settings-communication-card > h3 {
+        padding-right: 44px;
+    }
+
+    #tab-settings #surveyInputArea > div[style*="display: flex"] {
+        flex-direction: column;
+    }
+}
+
+
+
+/* =========================================================
+   FIX SWITCH ĐỘNG TRONG CÀI ĐẶT GIÁO VIÊN
+   Ngăn công tắc Tối ưu hiệu năng / Mức hiệu ứng bị flex co thành hình tròn.
+   ========================================================= */
+#tab-settings #webPerformanceOptimizerSettingsRow .perf-setting-copy,
+#tab-settings #effectQualitySettingsRow .fxq-setting-copy {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+}
+
+#tab-settings #webPerformanceOptimizerSettingsRow > .switch,
+#tab-settings #effectQualitySettingsRow .fxq-setting-head > .switch {
+    position: relative !important;
+    display: inline-block !important;
+    flex: 0 0 50px !important;
+    width: 50px !important;
+    min-width: 50px !important;
+    max-width: 50px !important;
+    height: 26px !important;
+    min-height: 26px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#tab-settings #webPerformanceOptimizerSettingsRow > .switch > input,
+#tab-settings #effectQualitySettingsRow .fxq-setting-head > .switch > input {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#tab-settings #webPerformanceOptimizerSettingsRow > .switch > .slider,
+#tab-settings #effectQualitySettingsRow .fxq-setting-head > .switch > .slider {
+    position: absolute !important;
+    inset: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 34px !important;
+}
+
+/* =========================================================
+   SETTINGS HEADING · ĐỒNG BỘ VỚI CÁC MỤC GIÁO VIÊN
+   Giữ nguyên HTML/logic, chỉ đưa đầu mục Cài đặt về kiểu tiêu đề chung.
+   ========================================================= */
+#tab-settings .teacher-settings-hero {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    margin: 0 0 20px !important;
+    padding: 4px 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+#tab-settings .teacher-settings-hero-copy {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+/* Các chi tiết hero riêng được ẩn để đầu mục giống Quản lý trò chơi/Giao bài/Lộ trình. */
+#tab-settings .teacher-settings-kicker,
+#tab-settings .teacher-settings-hero-copy > p,
+#tab-settings .teacher-settings-hero-badge {
+    display: none !important;
+}
+
+#tab-settings .teacher-settings-hero h2 {
+    margin: 0 !important;
+    color: inherit !important;
+    font-size: 2em !important;
+    line-height: 1.2 !important;
+}
+
+@media (max-width: 768px) {
+    #tab-settings .teacher-settings-hero {
+        margin-bottom: 16px !important;
+        padding: 2px 0 !important;
+    }
+
+    #tab-settings .teacher-settings-hero h2 {
+        font-size: 1.65em !important;
+    }
+}
+
+/* =========================================================
+   QUẢN LÝ HỌC SINH · QUYỀN CỬA HÀNG & TRÒ CHƠI · UI FIX
+   ========================================================= */
+#studentsListContainer .student-account-preferences {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 9px 0 0 !important;
+    padding: 0 !important;
+}
+
+#studentsListContainer .student-account-checkbox {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 22px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    font-size: .85em !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+}
+
+#studentsListContainer .student-account-checkbox > input[type="checkbox"] {
+    appearance: auto !important;
+    -webkit-appearance: checkbox !important;
+    display: inline-block !important;
+    position: static !important;
+    flex: 0 0 17px !important;
+    width: 17px !important;
+    min-width: 17px !important;
+    max-width: 17px !important;
+    height: 17px !important;
+    min-height: 17px !important;
+    max-height: 17px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    cursor: pointer !important;
+}
+
+#studentsListContainer .student-account-checkbox > span {
+    display: inline !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#studentsListContainer .student-account-checkbox--roadmap {
+    color: #059669 !important;
+}
+
+#studentsListContainer .student-account-checkbox--roadmap > input[type="checkbox"] {
+    accent-color: #059669 !important;
+}
+
+#studentsListContainer .student-account-checkbox--store-game {
+    color: #6d28d9 !important;
+}
+
+#studentsListContainer .student-account-checkbox--store-game > input[type="checkbox"] {
+    accent-color: #7c3aed !important;
+}
+
+#studentsListContainer .student-account-checkbox > input[type="checkbox"]:disabled {
+    cursor: wait !important;
+    opacity: .55 !important;
+}
+
+/* Không cho cột Họ và Tên bị phình do checkbox/input chung của form. */
+#studentsListContainer table td:first-child,
+#studentsListContainer table th:first-child {
+    min-width: 235px;
+}
+
+@media (max-width: 760px) {
+    #studentsListContainer .student-account-checkbox {
+        white-space: normal !important;
+    }
+}
+
+/* =========================================================
+   TEACHER · LEADERBOARD ADMIN CENTER v2
+   Đồng bộ giao diện quản lý với cơ chế BXH phía học sinh.
+   ========================================================= */
+.teacher-lb-admin-card {
+    overflow: hidden;
+    border: 1px solid rgba(245, 158, 11, .20) !important;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(251, 191, 36, .12), transparent 30%),
+        rgba(255, 255, 255, .72) !important;
+}
+
+.teacher-lb-admin-accordion-head {
+    gap: 18px;
+    padding: 18px 20px !important;
+}
+
+.teacher-lb-admin-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.teacher-lb-admin-heading-icon {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fff7cc, #ffe29a);
+    box-shadow: inset 0 0 0 1px rgba(217, 119, 6, .16), 0 9px 20px rgba(217, 119, 6, .12);
+    font-size: 1.55rem;
+}
+
+.teacher-lb-admin-heading h3 {
+    margin: 2px 0 3px;
+    color: #26355f;
+    font-size: 1.08rem;
+}
+
+.teacher-lb-admin-heading p {
+    margin: 0;
+    color: #7b86a8;
+    font-size: .82rem;
+    font-weight: 650;
+    line-height: 1.45;
+}
+
+.teacher-lb-admin-kicker,
+.teacher-lb-admin-eyebrow,
+.teacher-lb-panel-kicker {
+    display: block;
+    color: #b45309;
+    font-size: .69rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.teacher-lb-admin-head-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.teacher-lb-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 32px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: .76rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.teacher-lb-status-pill.is-open {
+    color: #047857;
+    background: rgba(16, 185, 129, .12);
+    border: 1px solid rgba(16, 185, 129, .18);
+}
+
+.teacher-lb-status-pill.is-closed {
+    color: #be123c;
+    background: rgba(244, 63, 94, .10);
+    border: 1px solid rgba(244, 63, 94, .16);
+}
+
+.teacher-lb-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.teacher-lb-admin-content {
+    padding: 0 18px 20px !important;
+}
+
+.teacher-lb-admin-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+    gap: 18px;
+    align-items: stretch;
+    margin-top: 4px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, .68);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(251, 191, 36, .24), transparent 28%),
+        linear-gradient(135deg, rgba(37, 99, 235, .94), rgba(99, 102, 241, .94) 52%, rgba(124, 58, 237, .94));
+    box-shadow: 0 18px 40px rgba(79, 70, 229, .18);
+    color: #fff;
+}
+
+.teacher-lb-admin-hero .teacher-lb-admin-eyebrow {
+    color: #fde68a;
+}
+
+.teacher-lb-admin-hero h4 {
+    margin: 6px 0 8px;
+    color: #fff;
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+.teacher-lb-admin-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255, 255, 255, .82);
+    font-size: .91rem;
+    font-weight: 650;
+    line-height: 1.55;
+}
+
+.teacher-lb-admin-hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 16px;
+}
+
+.teacher-lb-info-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 11px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .13);
+    color: #fff;
+    font-size: .79rem;
+    font-weight: 850;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.teacher-lb-info-chip.muted {
+    color: rgba(255, 255, 255, .82);
+}
+
+.teacher-lb-admin-master-switch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, .20);
+    border-radius: 18px;
+    background: rgba(15, 23, 42, .18);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.teacher-lb-admin-switch-label {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, .74);
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.teacher-lb-switch {
+    position: relative;
+    width: 64px;
+    height: 34px;
+    margin-bottom: 9px;
+    cursor: pointer;
+}
+
+.teacher-lb-switch input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.teacher-lb-switch-track {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, .26);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, .42);
+    transition: .22s ease;
+}
+
+.teacher-lb-switch-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, .25);
+    transition: .22s cubic-bezier(.2, .8, .2, 1);
+}
+
+.teacher-lb-switch input:checked + .teacher-lb-switch-track {
+    background: #10b981;
+    border-color: rgba(255, 255, 255, .42);
+}
+
+.teacher-lb-switch input:checked + .teacher-lb-switch-track .teacher-lb-switch-thumb {
+    transform: translateX(30px);
+}
+
+.teacher-lb-switch input:focus-visible + .teacher-lb-switch-track {
+    outline: 3px solid rgba(255, 255, 255, .42);
+    outline-offset: 3px;
+}
+
+.teacher-lb-admin-master-switch strong {
+    color: #fff;
+    font-size: .95rem;
+}
+
+.teacher-lb-admin-master-switch small {
+    margin-top: 3px;
+    color: rgba(255, 255, 255, .68);
+    font-size: .72rem;
+    line-height: 1.35;
+}
+
+.teacher-lb-admin-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.teacher-lb-stat-card {
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid rgba(99, 102, 241, .10);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, .76);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, .055);
+}
+
+.teacher-lb-stat-icon {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
+.teacher-lb-stat-label {
+    display: block;
+    margin-bottom: 3px;
+    color: #7b86a8;
+    font-size: .73rem;
+    font-weight: 850;
+}
+
+.teacher-lb-stat-card strong {
+    display: block;
+    color: #26355f;
+    font-size: 1rem;
+}
+
+.teacher-lb-stat-card small {
+    display: block;
+    margin-top: 4px;
+    color: #96a0bc;
+    font-size: .69rem;
+    line-height: 1.35;
+}
+
+.teacher-lb-admin-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 14px;
+}
+
+.teacher-lb-admin-panel {
+    padding: 19px;
+    border: 1px solid rgba(99, 102, 241, .11);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .78);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, .06);
+}
+
+.teacher-lb-panel-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 15px;
+}
+
+.teacher-lb-panel-head h4,
+.teacher-lb-panel-head h5 {
+    margin: 4px 0 0;
+    color: #26355f;
+    font-size: 1rem;
+}
+
+.teacher-lb-panel-icon {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(99, 102, 241, .08);
+    font-size: 1.15rem;
+}
+
+.teacher-lb-season-summary {
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(59, 130, 246, .055);
+    border: 1px solid rgba(59, 130, 246, .10);
+}
+
+.teacher-lb-season-summary > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.teacher-lb-season-summary span {
+    color: #7b86a8;
+    font-size: .78rem;
+    font-weight: 800;
+}
+
+.teacher-lb-season-summary strong {
+    color: #2563eb;
+    font-size: .9rem;
+}
+
+.teacher-lb-season-summary p {
+    margin: 8px 0 0;
+    color: #77819f;
+    font-size: .76rem;
+    line-height: 1.45;
+}
+
+.teacher-lb-schedule-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.teacher-lb-schedule-fields label > span,
+.teacher-lb-rate-grid label > span {
+    display: block;
+    margin-bottom: 6px;
+    color: #53617f;
+    font-size: .75rem;
+    font-weight: 850;
+}
+
+.teacher-lb-schedule-fields select,
+.teacher-lb-schedule-fields input,
+.teacher-lb-reward-card input,
+.teacher-lb-rate-grid input {
+    width: 100%;
+    min-height: 42px;
+    margin: 0 !important;
+    padding: 9px 11px;
+    border: 1px solid #dfe4ef;
+    border-radius: 11px;
+    background: #fff;
+    color: #26355f;
+    font-weight: 800;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.teacher-lb-schedule-fields select:focus,
+.teacher-lb-schedule-fields input:focus,
+.teacher-lb-reward-card input:focus,
+.teacher-lb-rate-grid input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, .10);
+}
+
+.teacher-lb-action-row {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr .8fr;
+    gap: 8px;
+    margin-top: 13px;
+}
+
+.teacher-lb-btn {
+    min-height: 42px;
+    margin: 0 !important;
+    padding: 10px 13px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 0 !important;
+    border-radius: 11px !important;
+    font-size: .77rem !important;
+    font-weight: 900 !important;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+
+.teacher-lb-btn:hover {
+    transform: translateY(-1px);
+}
+
+.teacher-lb-btn.primary {
+    background: linear-gradient(135deg, #4f46e5, #2563eb) !important;
+    color: #fff !important;
+    box-shadow: 0 7px 16px rgba(79, 70, 229, .17) !important;
+}
+
+.teacher-lb-btn.secondary {
+    background: #eef2ff !important;
+    color: #4f46e5 !important;
+}
+
+.teacher-lb-btn.danger {
+    background: #fff1f2 !important;
+    color: #be123c !important;
+}
+
+.teacher-lb-btn.save {
+    min-width: 220px;
+    background: linear-gradient(135deg, #f59e0b, #ea580c) !important;
+    color: #fff !important;
+    box-shadow: 0 8px 18px rgba(234, 88, 12, .16) !important;
+}
+
+.teacher-lb-formula {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 13px 14px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, .07), rgba(37, 99, 235, .05));
+    border: 1px solid rgba(79, 70, 229, .09);
+}
+
+.teacher-lb-formula strong {
+    color: #4338ca;
+    font-size: .85rem;
+}
+
+.teacher-lb-formula span {
+    color: #5d6784;
+    font-size: .76rem;
+    font-weight: 750;
+}
+
+.teacher-lb-rule-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 11px;
+}
+
+.teacher-lb-rule-list > div {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 9px 10px;
+    border-radius: 12px;
+    background: #fafbff;
+}
+
+.teacher-lb-rule-badge {
+    display: inline-grid;
+    place-items: center;
+    min-height: 32px;
+    border-radius: 10px;
+    font-size: .75rem;
+    font-weight: 950;
+}
+
+.teacher-lb-rule-badge.late { color: #b45309; background: #fff7ed; }
+.teacher-lb-rule-badge.essay { color: #7c3aed; background: #f5f3ff; }
+.teacher-lb-rule-badge.cheat { color: #be123c; background: #fff1f2; }
+
+.teacher-lb-rule-list p {
+    margin: 0;
+    color: #3f4b68;
+    font-size: .78rem;
+}
+
+.teacher-lb-rule-list small {
+    display: block;
+    margin-top: 2px;
+    color: #8b95af;
+    font-size: .69rem;
+    line-height: 1.35;
+}
+
+.teacher-lb-note {
+    display: flex;
+    gap: 9px;
+    margin-top: 11px;
+    padding: 10px 11px;
+    border-radius: 12px;
+    background: rgba(14, 165, 233, .07);
+    color: #53617f;
+}
+
+.teacher-lb-note p {
+    margin: 0;
+    font-size: .73rem;
+    line-height: 1.45;
+}
+
+.teacher-lb-reward-panel {
+    margin-top: 14px;
+}
+
+.teacher-lb-reward-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.teacher-lb-reward-card {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    min-width: 0;
+    padding: 13px;
+    border-radius: 15px;
+    border: 1px solid rgba(15, 23, 42, .07);
+    background: #fbfcff;
+}
+
+.teacher-lb-reward-card.rank-1 { background: linear-gradient(135deg, #fffdf0, #fff7d6); border-color: rgba(217, 119, 6, .14); }
+.teacher-lb-reward-card.rank-2 { background: linear-gradient(135deg, #fbfdff, #eef2f7); border-color: rgba(100, 116, 139, .13); }
+.teacher-lb-reward-card.rank-3 { background: linear-gradient(135deg, #fff9f4, #ffeddc); border-color: rgba(194, 65, 12, .12); }
+.teacher-lb-reward-card.rank-4 { background: linear-gradient(135deg, #f8faff, #eef2ff); border-color: rgba(79, 70, 229, .11); }
+
+.teacher-lb-rank-medal {
+    font-size: 1.55rem;
+}
+
+.teacher-lb-reward-card > div > span {
+    display: block;
+    color: #7b86a8;
+    font-size: .69rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.teacher-lb-reward-card strong {
+    display: block;
+    margin-top: 2px;
+    color: #26355f;
+    font-size: .84rem;
+    line-height: 1.35;
+}
+
+.teacher-lb-reward-card small {
+    display: block;
+    margin-top: 4px;
+    color: #8f99b2;
+    font-size: .67rem;
+    line-height: 1.35;
+}
+
+.teacher-lb-reward-card label,
+.teacher-lb-rate-grid label > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.teacher-lb-reward-card label input {
+    min-height: 36px;
+    padding-right: 44px;
+}
+
+.teacher-lb-reward-card label em,
+.teacher-lb-rate-grid label em {
+    position: absolute;
+    right: 10px;
+    color: #9aa3b8;
+    font-size: .69rem;
+    font-style: normal;
+    font-weight: 900;
+    pointer-events: none;
+}
+
+.teacher-lb-chest-box {
+    margin-top: 14px;
+    padding: 15px;
+    border: 1px solid rgba(245, 158, 11, .12);
+    border-radius: 17px;
+    background: rgba(255, 251, 235, .58);
+}
+
+.teacher-lb-chest-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.teacher-lb-chest-head h5 {
+    margin: 3px 0 0;
+    color: #26355f;
+    font-size: .92rem;
+}
+
+.teacher-lb-rate-total {
+    min-width: 58px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    text-align: center;
+    font-size: .78rem;
+    font-weight: 950;
+}
+
+.teacher-lb-rate-total.is-valid {
+    color: #047857;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+}
+
+.teacher-lb-rate-total.is-invalid {
+    color: #be123c;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+}
+
+.teacher-lb-rate-bar {
+    width: 100%;
+    height: 10px;
+    display: flex;
+    overflow: hidden;
+    margin: 12px 0;
+    border-radius: 999px;
+    background: #e9edf5;
+}
+
+.teacher-lb-rate-bar span {
+    height: 100%;
+    transition: width .22s ease;
+}
+
+.teacher-lb-rate-bar .dup { background: #f59e0b; }
+.teacher-lb-rate-bar .norm { background: #3b82f6; }
+.teacher-lb-rate-bar .leg { background: #8b5cf6; }
+
+.teacher-lb-rate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.teacher-lb-rate-grid label {
+    min-width: 0;
+    padding: 11px;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(15, 23, 42, .06);
+}
+
+.teacher-lb-rate-grid label > span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.teacher-lb-rate-grid label > span i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.teacher-lb-rate-grid label.dup > span i { background: #f59e0b; }
+.teacher-lb-rate-grid label.norm > span i { background: #3b82f6; }
+.teacher-lb-rate-grid label.leg > span i { background: #8b5cf6; }
+
+.teacher-lb-rate-grid input {
+    text-align: center;
+    padding-right: 28px;
+}
+
+.teacher-lb-rate-grid small {
+    display: block;
+    margin-top: 6px;
+    color: #939cb2;
+    font-size: .65rem;
+    line-height: 1.35;
+}
+
+.teacher-lb-error {
+    margin: 10px 0 0;
+    padding: 9px 11px;
+    border: 1px solid #fecdd3;
+    border-radius: 10px;
+    background: #fff1f2;
+    color: #be123c;
+    font-size: .72rem;
+    font-weight: 850;
+}
+
+.teacher-lb-error[hidden] {
+    display: none !important;
+}
+
+.teacher-lb-save-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(100, 116, 139, .20);
+}
+
+.teacher-lb-save-row strong {
+    display: block;
+    color: #4b5875;
+    font-size: .78rem;
+}
+
+.teacher-lb-save-row small {
+    display: block;
+    margin-top: 3px;
+    color: #929cb4;
+    font-size: .68rem;
+}
+
+@media (max-width: 1100px) {
+    .teacher-lb-admin-stat-grid,
+    .teacher-lb-reward-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .teacher-lb-admin-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .teacher-lb-admin-accordion-head {
+        align-items: flex-start !important;
+    }
+
+    .teacher-lb-admin-heading p,
+    .teacher-lb-status-pill {
+        display: none;
+    }
+
+    .teacher-lb-admin-content {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .teacher-lb-admin-hero {
+        grid-template-columns: 1fr;
+        padding: 17px;
+    }
+
+    .teacher-lb-admin-master-switch {
+        min-height: 120px;
+    }
+
+    .teacher-lb-admin-stat-grid,
+    .teacher-lb-reward-grid,
+    .teacher-lb-rate-grid,
+    .teacher-lb-schedule-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-lb-action-row {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-lb-save-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .teacher-lb-btn.save {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* =========================================================
+   FINAL FIX · TEACHER SIDEBAR TOP / COLLAPSED
+   - Mở rộng: toggle nằm bên trong góc phải, không đè tiêu đề.
+   - Thu gọn: chỉ còn 1 toggle ở giữa phía trên.
+   - Ẩn "Bảng điều khiển" + icon giả từ common.css.
+   ========================================================= */
+@media screen and (min-width: 769px) {
+    html[data-app-role="teacher"] body
+    .dashboard > .sidebar {
+        position: sticky !important;
+        overflow-x: hidden !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard > .sidebar > .sidebar-toggle {
+        position: absolute !important;
+        top: 18px !important;
+        right: 14px !important;
+        left: auto !important;
+        bottom: auto !important;
+
+        float: none !important;
+        margin: 0 !important;
+
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        min-height: 34px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        z-index: 30 !important;
+        transform: none !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard:not(.collapsed) > .sidebar > .sidebar-toggle:hover {
+        transform: scale(1.08) !important;
+    }
+
+    /* Chừa chỗ cho nút khi sidebar đang mở. */
+    html[data-app-role="teacher"] body
+    .dashboard:not(.collapsed) .sidebar-top h3 {
+        margin-right: 46px !important;
+    }
+
+    /* Sidebar thu gọn: nút duy nhất nằm chính giữa. */
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-toggle {
+        top: 18px !important;
+        left: 50% !important;
+        right: auto !important;
+        margin: 0 !important;
+
+        transform: translateX(-50%) rotate(180deg) !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-toggle:hover {
+        transform: translateX(-50%) rotate(180deg) scale(1.08) !important;
+    }
+
+    /*
+     * teacher.css có font-size:1.18rem !important ở layout refresh,
+     * nên phải khóa collapsed bằng !important để chữ không hiện lại.
+     */
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar-top h3 {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+
+        font-size: 0 !important;
+        line-height: 0 !important;
+
+        overflow: hidden !important;
+    }
+
+    /* Hủy cả 👤/✦ được common.css tạo bằng pseudo-element. */
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar-top h3::before,
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar-top h3::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    /* teacher.html có <br> ngay sau h3; bỏ khoảng trắng này khi collapsed. */
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar-top h3 + br {
+        display: none !important;
+    }
+
+    /* Đẩy menu xuống dưới toggle, tránh nút đầu tiên đè lên toggle. */
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar-top {
+        padding-top: 68px !important;
+    }
+}
+
+
+/* =========================================================
+   HOTFIX 2026-09-17 · TEACHER SIDEBAR TOGGLE OVERLAP
+   - Sửa nút đóng/mở sidebar bị dạt sang mép trái và đè lên
+     tiêu đề "Bảng điều khiển".
+   - Không phụ thuộc sidebar-toggle có phải direct child hay không.
+   - Desktop >= 769px; không thay đổi giao diện mobile.
+   ========================================================= */
+@media screen and (min-width: 769px) {
+    html[data-app-role="teacher"] body .dashboard .sidebar {
+        position: sticky !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Bắt mọi vị trí DOM của nút toggle, kể cả khi nằm trong sidebar-top. */
+    html[data-app-role="teacher"] body .dashboard .sidebar .sidebar-toggle {
+        position: absolute !important;
+        top: 18px !important;
+        right: 14px !important;
+        left: auto !important;
+        bottom: auto !important;
+        float: none !important;
+        margin: 0 !important;
+
+        width: 34px !important;
+        min-width: 34px !important;
+        max-width: 34px !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 100 !important;
+        transform: none !important;
+    }
+
+    /* Chừa hẳn vùng cho toggle ở góc phải, không cho tiêu đề chạm nút. */
+    html[data-app-role="teacher"] body
+    .dashboard:not(.collapsed) .sidebar .sidebar-top h3 {
+        margin: 0 54px 20px 2px !important;
+        min-height: 34px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard:not(.collapsed) .sidebar .sidebar-toggle:hover {
+        transform: scale(1.08) !important;
+    }
+
+    /* Khi thu gọn: đặt nút chính giữa sidebar và ẩn tiêu đề. */
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar .sidebar-toggle {
+        top: 18px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) rotate(180deg) !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar .sidebar-toggle:hover {
+        transform: translateX(-50%) rotate(180deg) scale(1.08) !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar .sidebar-top h3 {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar .sidebar-top h3::before,
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar .sidebar-top h3::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar .sidebar-top h3 + br {
+        display: none !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed .sidebar .sidebar-top {
+        padding-top: 68px !important;
+    }
+}
+
+
+/* ============================================================================
+   TEACHER · LEADERBOARD ADMIN CENTER v3 · CACHE/CONFLICT GUARD
+   Bảo đảm giao diện quản lý BXH không bị CSS form/mobile cũ kéo về checkbox thô.
+   ============================================================================ */
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-hero {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px) !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+    padding: 22px !important;
+    border: 1px solid rgba(255,255,255,.68) !important;
+    border-radius: 22px !important;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(251,191,36,.24), transparent 28%),
+        linear-gradient(135deg, rgba(37,99,235,.94), rgba(99,102,241,.94) 52%, rgba(124,58,237,.94)) !important;
+    color: #fff !important;
+    box-shadow: 0 18px 40px rgba(79,70,229,.18) !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-master-switch {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 150px !important;
+    padding: 18px !important;
+    border: 1px solid rgba(255,255,255,.20) !important;
+    border-radius: 18px !important;
+    background: rgba(15,23,42,.18) !important;
+    color: #fff !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard label.teacher-lb-switch {
+    position: relative !important;
+    display: block !important;
+    width: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    margin: 0 0 9px !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard label.teacher-lb-switch > input#lbToggle {
+    position: absolute !important;
+    width: 1px !important;
+    min-width: 1px !important;
+    max-width: 1px !important;
+    height: 1px !important;
+    min-height: 1px !important;
+    max-height: 1px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-switch-track {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    border: 1px solid rgba(255,255,255,.26) !important;
+    border-radius: 999px !important;
+    background: rgba(15,23,42,.42) !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-switch-thumb {
+    position: absolute !important;
+    top: 4px !important;
+    left: 4px !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    box-shadow: 0 4px 10px rgba(15,23,42,.25) !important;
+    transition: transform .22s cubic-bezier(.2,.8,.2,1) !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard label.teacher-lb-switch > input#lbToggle:checked + .teacher-lb-switch-track {
+    background: #10b981 !important;
+    border-color: rgba(255,255,255,.42) !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard label.teacher-lb-switch > input#lbToggle:checked + .teacher-lb-switch-track .teacher-lb-switch-thumb {
+    transform: translateX(30px) !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-hero h4,
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-master-switch strong {
+    color: #fff !important;
+}
+
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-hero p,
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-switch-label,
+html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-master-switch small {
+    color: rgba(255,255,255,.80) !important;
+}
+
+@media (max-width: 900px) {
+    html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-hero {
+        grid-template-columns: 1fr !important;
+        padding: 17px !important;
+    }
+
+    html[data-app-role="teacher"] #teacherLeaderboardAdminCard .teacher-lb-admin-master-switch {
+        min-height: 120px !important;
+    }
+}
+
+/* ============================================================================
+   FIX 2026-09-17 · TEACHER SIDEBAR TOGGLE · AUTHORITATIVE FINAL OVERRIDE
+   Mục tiêu:
+   - Nút đóng/mở sidebar luôn nằm ở góc phải khi sidebar mở.
+   - Không đè lên tiêu đề "Bảng điều khiển".
+   - Khi sidebar thu gọn, nút nằm giữa phía trên và tiêu đề được ẩn.
+   - Selector đủ mạnh để không bị các rule sidebar cũ ghi đè.
+   ============================================================================ */
+@media screen and (min-width: 769px) {
+    html[data-app-role="teacher"] body .dashboard > .sidebar {
+        position: sticky !important;
+        top: 16px !important;
+        overflow-x: hidden !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard > .sidebar > .sidebar-toggle {
+        position: absolute !important;
+        top: 18px !important;
+        right: 16px !important;
+        left: auto !important;
+        bottom: auto !important;
+
+        float: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        width: 38px !important;
+        min-width: 38px !important;
+        max-width: 38px !important;
+        height: 38px !important;
+        min-height: 38px !important;
+        max-height: 38px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        z-index: 1000 !important;
+        transform: none !important;
+    }
+
+    /* Chừa vùng bên phải cho nút toggle, không cho chữ chạy xuống dưới nút. */
+    html[data-app-role="teacher"] body
+    .dashboard:not(.collapsed) > .sidebar > .sidebar-top h3 {
+        box-sizing: border-box !important;
+        width: auto !important;
+        max-width: calc(100% - 58px) !important;
+        margin: 0 58px 20px 2px !important;
+        min-height: 38px !important;
+        display: flex !important;
+        align-items: center !important;
+        white-space: nowrap !important;
+    }
+
+    /* teacher.html đang có <br> sau h3; bỏ line break thừa ở desktop. */
+    html[data-app-role="teacher"] body
+    .dashboard:not(.collapsed) > .sidebar > .sidebar-top h3 + br {
+        display: none !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard:not(.collapsed) > .sidebar > .sidebar-toggle:hover {
+        transform: scale(1.06) !important;
+    }
+
+    /* Trạng thái sidebar thu gọn. */
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-toggle {
+        top: 18px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) rotate(180deg) !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-toggle:hover {
+        transform: translateX(-50%) rotate(180deg) scale(1.06) !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-top h3,
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-top h3::before,
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-top h3::after,
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-top h3 + br {
+        display: none !important;
+    }
+
+    html[data-app-role="teacher"] body
+    .dashboard.collapsed > .sidebar > .sidebar-top {
+        padding-top: 70px !important;
+    }
+}
+
+
+/* ============================================================================
+   FIX 2026-09-17 v2 · MOVE TEACHER SIDEBAR TOGGLE TO RIGHT
+   ============================================================================ */
+@media screen and (min-width: 769px) {
+    html[data-app-role="teacher"] body .dashboard:not(.collapsed) > .sidebar > .sidebar-toggle {
+        position: absolute !important;
+        top: 18px !important;
+        right: 14px !important;
+        left: auto !important;
+        bottom: auto !important;
+        margin: 0 !important;
+        float: none !important;
+        transform: none !important;
+        z-index: 2147480 !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard:not(.collapsed) > .sidebar > .sidebar-top h3 {
+        box-sizing: border-box !important;
+        width: auto !important;
+        max-width: calc(100% - 68px) !important;
+        margin: 0 68px 20px 2px !important;
+        padding-right: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard:not(.collapsed) > .sidebar > .sidebar-top h3 + br {
+        display: none !important;
+    }
+
+    html[data-app-role="teacher"] body .dashboard.collapsed > .sidebar > .sidebar-toggle {
+        top: 18px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) rotate(180deg) !important;
+    }
+}
+
+/* ============================================================================
+   FIX 2026-09-20 · CUSTOM STUDENT SELECT MODAL UI GUARD
+   Mục đích:
+   - Chặn CSS chung/mobile ghi đè ô tìm kiếm và 2 nút trong popup chọn học sinh.
+   - Chỉ tác động #customStudentModal, không ảnh hưởng các popup/nút khác.
+   - Không dùng !important cho display của overlay để JS vẫn mở/đóng bằng style.display.
+   ============================================================================ */
+
+html[data-app-role="teacher"] body #customStudentModal {
+    position: fixed !important;
+    inset: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+    overflow: auto !important;
+    background: rgba(15, 23, 42, 0.48) !important;
+    z-index: 10000050 !important;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-box {
+    box-sizing: border-box !important;
+    width: min(90vw, 420px) !important;
+    max-width: 420px !important;
+    max-height: min(82vh, 680px) !important;
+    margin: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(226, 232, 240, 0.95) !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24) !important;
+    color: #1f2937 !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-header {
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 24px 24px 16px !important;
+    background: #ffffff !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-search-box {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 52px !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    border: 1px solid transparent !important;
+    border-radius: 12px !important;
+    background: #f4f5f7 !important;
+    box-shadow: none !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-search-box:focus-within {
+    border-color: rgba(59, 130, 246, 0.42) !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10) !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal #customStudentSearch {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #1f2937 !important;
+    font: inherit !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal #customStudentSearch::placeholder {
+    color: #9ca3af !important;
+    opacity: 1 !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-list {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: min(280px, 46vh) !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 24px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    background: #ffffff !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-item {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 56px !important;
+    margin: 0 !important;
+    padding: 10px 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-item:hover {
+    background: #f8fafc !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-item input.student-cb[type="checkbox"] {
+    flex: 0 0 18px !important;
+    width: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    height: 18px !important;
+    min-height: 18px !important;
+    max-height: 18px !important;
+    margin: 0 16px 0 0 !important;
+    padding: 0 !important;
+    border-radius: 3px !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    accent-color: #3b82f6 !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-avatar {
+    box-sizing: border-box !important;
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    margin: 0 12px 0 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    line-height: 1 !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer {
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px 24px 24px !important;
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    background: #ffffff !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer > button.btn-cancel,
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer > button.btn-confirm {
+    box-sizing: border-box !important;
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 46px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+    border-radius: 9px !important;
+    font-family: inherit !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer > button.btn-cancel {
+    border: 1px solid #dbe2ea !important;
+    background: #ffffff !important;
+    color: #475569 !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer > button.btn-cancel:hover {
+    border-color: #cbd5e1 !important;
+    background: #f8fafc !important;
+    color: #334155 !important;
+    transform: none !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer > button.btn-confirm {
+    border: 1px solid #3b82f6 !important;
+    background: #3b82f6 !important;
+    color: #ffffff !important;
+    box-shadow: 0 5px 14px rgba(59, 130, 246, 0.24) !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer > button.btn-confirm:hover {
+    border-color: #2563eb !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    transform: none !important;
+}
+
+html[data-app-role="teacher"] body #customStudentModal .student-modal-footer > button:focus-visible,
+html[data-app-role="teacher"] body #customStudentModal #customStudentSearch:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.22) !important;
+    outline-offset: 2px !important;
+}
+
+@media (max-width: 520px) {
+    html[data-app-role="teacher"] body #customStudentModal {
+        padding: 12px !important;
+    }
+
+    html[data-app-role="teacher"] body #customStudentModal .student-modal-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: calc(100dvh - 24px) !important;
+        border-radius: 14px !important;
+    }
+
+    html[data-app-role="teacher"] body #customStudentModal .student-modal-header {
+        padding: 16px 16px 12px !important;
+    }
+
+    html[data-app-role="teacher"] body #customStudentModal .student-modal-list {
+        padding: 0 16px !important;
+        max-height: 52vh !important;
+    }
+
+    html[data-app-role="teacher"] body #customStudentModal .student-modal-footer {
+        padding: 16px !important;
+        gap: 10px !important;
+    }
+}
+
+
+
+/* =========================================================
+   HOTFIX 2026-09-23 · TEACHER MODAL VIEWPORT PORTAL
+   - Các modal chính của giáo viên đã được đưa ra khỏi .content và đặt
+     trực tiếp dưới <body> trong teacher.html.
+   - Lý do: .content dùng backdrop-filter, tạo containing block cho
+     position: fixed ở Chromium. Modal con vì thế chỉ phủ vùng nội dung,
+     không phủ sidebar và bị căn giữa lệch sang phải.
+   - Guard này khóa overlay theo đúng viewport mà không thay đổi logic
+     mở/đóng, ID, dữ liệu hay sự kiện của các modal.
+   ========================================================= */
+html[data-app-role="teacher"] body > :is(
+    #materialModal,
+    #editMaterialModal,
+    #scheduleModal,
+    #studentModal,
+    #editStudentModal,
+    #editAssignmentModal,
+    #assignmentStatusModal,
+    #notificationHistoryModal,
+    #surveyHistoryModal,
+    #surveyResultsModal
+) {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    z-index: 9990;
+}
+
+html[data-app-role="teacher"] body > :is(
+    #materialModal,
+    #editMaterialModal,
+    #scheduleModal,
+    #studentModal,
+    #editStudentModal,
+    #editAssignmentModal,
+    #assignmentStatusModal,
+    #notificationHistoryModal,
+    #surveyHistoryModal,
+    #surveyResultsModal
+).active {
+    display: flex;
+}
+
+/* Modal kết quả khảo sát vốn cần nằm trên modal lịch sử khảo sát. */
+html[data-app-role="teacher"] body > #surveyResultsModal {
+    z-index: 100000 !important;
+}
+
+
+/* Keep teacher dialogs inside the visible screen, including mobile browser chrome. */
+html[data-app-role="teacher"] body > .teacher-viewport-modal {
+    padding: 16px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+html[data-app-role="teacher"] body > .teacher-viewport-modal > .modal-content {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100% !important;
+    max-width: min(550px, 100%);
+    max-height: calc(100vh - 32px) !important;
+    max-height: calc(100dvh - 32px) !important;
+    margin: 0 !important;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+html[data-app-role="teacher"] body > .teacher-viewport-modal > .modal-content > h3 {
+    flex-shrink: 0;
+    padding-right: 40px;
+    overflow-wrap: anywhere;
+}
+
+/* Flex form bodies must shrink so their own scrollbars remain reachable. */
+html[data-app-role="teacher"] body > .teacher-viewport-modal > .modal-content > div {
+    min-height: 0;
+    min-width: 0;
+}
+
+html[data-app-role="teacher"] body:has(> .teacher-viewport-modal.active) {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    html[data-app-role="teacher"] body > .teacher-viewport-modal > .modal-content {
+        padding: 20px 16px !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Teacher workspace refresh: presentation only, no visibility or interaction rules. */
+html[data-app-role="teacher"] body.teacher-workspace-refresh{font-family:"Segoe UI",Arial,sans-serif;line-height:1.55}
+html[data-app-role="teacher"] .teacher-workspace-refresh .dashboard{min-height:100dvh;align-items:flex-start}
+html[data-app-role="teacher"] .teacher-workspace-refresh .dashboard>.content{min-width:0;box-sizing:border-box;padding:40px clamp(24px,3.5vw,64px);backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content>.tab-content{max-width:1280px;margin-inline:auto}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content h2{font-size:clamp(24px,2.1vw,32px);font-weight:700;letter-spacing:-.7px;line-height:1.3;text-shadow:none;margin-bottom:24px}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content h2::after{display:none}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content h3{font-size:18px;line-height:1.4;letter-spacing:-.2px}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content :is(.card,.form-container){box-sizing:border-box;border-radius:16px;padding:clamp(18px,2.2vw,32px);margin-bottom:24px;backdrop-filter:none;-webkit-backdrop-filter:none}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content .card .card{padding:20px;margin-block:16px;box-shadow:none}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]),select,textarea){box-sizing:border-box;max-width:100%;border-radius:9px;padding:11px 13px;font-family:inherit;font-size:14px;line-height:1.45;box-shadow:none}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content label{font-size:14px;line-height:1.5}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content button{font-family:inherit;line-height:1.4;letter-spacing:0;box-shadow:none;border-radius:9px;transition:background-color .15s,border-color .15s}
+html[data-app-role="teacher"] .teacher-workspace-refresh :is(button,input,select,textarea):focus-visible{outline:3px solid #299dbe88;outline-offset:3px}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content .search-bar{min-height:46px;margin:0 0 16px;padding-left:16px}
+html[data-app-role="teacher"] .teacher-workspace-refresh :is(#assignedStudentFilterContainer,#submittedStudentFilterContainer,#materialsStudentFilterContainer){gap:8px!important;padding:0 0 12px!important;margin-bottom:16px!important;scrollbar-width:thin}
+html[data-app-role="teacher"] .teacher-workspace-refresh .btn-student-filter{border-radius:8px;padding:9px 14px;font-size:13px;box-shadow:none}
+html[data-app-role="teacher"] .teacher-workspace-refresh .teacher-question-bank-entry{max-width:none;margin-bottom:24px!important;padding:18px 22px!important;border-radius:12px!important;box-shadow:none!important}
+html[data-app-role="teacher"] .teacher-workspace-refresh .teacher-assignment-heading-row{justify-content:space-between;margin-bottom:20px}
+html[data-app-role="teacher"] .teacher-workspace-refresh .teacher-assignment-heading-row h2{margin:0}
+html[data-app-role="teacher"] .teacher-workspace-refresh :is(.teacher-question-bank-heading-row,.teacher-game-heading-row){gap:16px;flex-wrap:wrap}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin-block:16px}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content :is(th,td){padding:14px 16px;text-align:left;border-radius:0;vertical-align:middle}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content th{font-size:12px;font-weight:700;letter-spacing:.35px}
+html[data-app-role="teacher"] .teacher-workspace-refresh .content td button{padding:7px 10px;margin:3px;white-space:nowrap}
+html[data-app-role="teacher"] .teacher-workspace-refresh .ql-toolbar{border-radius:10px 10px 0 0}
+html[data-app-role="teacher"] .teacher-workspace-refresh .ql-container{border-radius:0 0 10px 10px;min-height:160px}
+html[data-app-role="teacher"] .teacher-workspace-refresh :is(.modal-content,.student-modal-content){border-radius:18px;box-shadow:0 24px 80px #1022382b}
+@media(min-width:769px){
+html[data-app-role="teacher"] .teacher-workspace-refresh .dashboard>.sidebar{width:256px!important;min-width:256px;position:sticky;top:0;height:100dvh;box-sizing:border-box;border-radius:0;border:0;box-shadow:none}
+html[data-app-role="teacher"] .teacher-workspace-refresh .dashboard>.content{width:calc(100% - 256px);margin-left:0!important}
+html[data-app-role="teacher"] .teacher-workspace-refresh .sidebar-top{padding:24px 16px!important}
+html[data-app-role="teacher"] .teacher-workspace-refresh .sidebar-bottom{padding:16px!important;border-top:1px solid #ffffff14}
+html[data-app-role="teacher"] .teacher-workspace-refresh .sidebar-top h3{font-size:15px!important;letter-spacing:.1px;padding-bottom:12px;border:0!important}
+html[data-app-role="teacher"] .teacher-workspace-refresh .sidebar .nav-item{min-height:46px;padding:12px 13px;margin:5px 0;border-radius:9px;font-size:13px;font-weight:600;white-space:normal;line-height:1.5;border:1px solid transparent;transform:none!important}
+html[data-app-role="teacher"] .teacher-workspace-refresh .dashboard.collapsed>.sidebar{width:80px!important;min-width:80px}
+html[data-app-role="teacher"] .teacher-workspace-refresh .dashboard.collapsed>.content{width:calc(100% - 80px)}
+html[data-app-role="teacher"] .teacher-workspace-refresh .dashboard.collapsed .sidebar .nav-item{padding:12px 0;text-align:center;font-size:19px}
+html[data-app-role="teacher"] body.teacher-workspace-refresh:is(:not([class*="theme-"]),.theme-blue) .dashboard>.sidebar{background:#142d45!important;color:#e8f0f7;backdrop-filter:none!important}
+html[data-app-role="teacher"] body.teacher-workspace-refresh:is(:not([class*="theme-"]),.theme-blue) .sidebar-top h3{color:#f0f6fc!important}
+html[data-app-role="teacher"] body.teacher-workspace-refresh:is(:not([class*="theme-"]),.theme-blue) .sidebar .nav-item{color:#bdcddd!important;background:transparent!important;box-shadow:none!important}
+html[data-app-role="teacher"] body.teacher-workspace-refresh:is(:not([class*="theme-"]),.theme-blue) .sidebar .nav-item:hover{background:#ffffff0d!important;color:#fff!important}
+html[data-app-role="teacher"] body.teacher-workspace-refresh:is(:not([class*="theme-"]),.theme-blue) .sidebar .nav-item.active{background:#24526b!important;border-color:#35728c!important;color:#fff!important;border-left:3px solid #69d4d0!important}
+html[data-app-role="teacher"] body.teacher-workspace-refresh:is(:not([class*="theme-"]),.theme-blue) .sidebar .btn-logout{background:#ffffff09;color:#d3e0ed;border:1px solid #ffffff1a;font-size:13px;padding:12px;box-shadow:none}
+html[data-app-role="teacher"] body.teacher-workspace-refresh:is(:not([class*="theme-"]),.theme-blue) .sidebar-toggle{background:#24445f!important;color:#d4e6f5!important;box-shadow:none!important;border:1px solid #ffffff1c!important;border-radius:9px}
+}
+
+
+
+/* Teacher settings: compact sections and consistent form surfaces. */
+html[data-app-role="teacher"] body.campus-modern #tab-settings{max-width:1200px}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-hero{padding:0 0 24px!important;margin:0 0 28px!important;border:0!important;border-bottom:1px solid #dce5ed!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-kicker{display:block!important;font-size:11px;letter-spacing:1.5px;color:#237b89;margin-bottom:9px}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-hero h2{margin:0 0 10px!important;font-size:30px!important}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-hero-copy>p{display:block!important;font-size:14px;max-width:650px;color:#687d8d}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-section{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;margin:0 0 30px;padding-bottom:30px;border-bottom:1px solid #dce5ed;align-items:start}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-section-heading{align-items:flex-start;gap:10px;margin:6px 0 0}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-section-icon{width:32px;height:32px;flex-basis:32px;font-size:16px;border-radius:9px;background:#e4f1f3}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-section-copy h3{font-size:16px!important;margin:0 0 7px;line-height:1.4}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-section-copy p{font-size:12px;line-height:1.65;color:#728292}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-grid{grid-template-columns:minmax(0,1fr)!important;gap:18px;margin:0;min-width:0}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-card{margin:0!important;padding:24px!important;border:1px solid #dce5ed!important;border-radius:14px!important;background:#fff!important;box-shadow:0 4px 16px #29475e05!important;min-width:0;grid-column:auto!important}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-card h3{font-size:18px!important;line-height:1.5;margin-top:0}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-card-heading{margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid #edf1f5}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-cash-card{grid-column:2!important}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-health-card{border-left:3px solid #4b99b0!important}
+html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-penalty-card{border-top:3px solid #db8e74!important}
+html[data-app-role="teacher"] body.campus-modern #tab-settings :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),select,textarea){max-width:100%;box-sizing:border-box}
+@media(min-width:1500px){html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-grid-account,html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-grid-engagement{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:1000px){html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-section{grid-template-columns:minmax(0,1fr);gap:16px}html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-cash-card{grid-column:1!important}}
+@media(max-width:600px){html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-card{padding:18px!important}html[data-app-role="teacher"] body.campus-modern #tab-settings .teacher-settings-hero h2{font-size:25px!important}}
